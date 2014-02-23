@@ -87,3 +87,7 @@ If you have a question, problems or feedback then you can send a mail or create 
 
 - TableSorter von Christian Bach => [http://mottie.github.io/tablesorter/](https://github.com/Mottie/tablesorter)
 - Bootstrap 3.1 => [http://getbootstrap.com/](http://getbootstrap.com/)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/lightszentip/giftlist/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
