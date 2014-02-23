@@ -1,0 +1,28 @@
+.page-header {
+	margin: 20px 20px 10px;
+}
+
+.container {
+	margin-bottom: 20px;
+}
+
+#footer {
+	height: 60px;
+	background-color: #f5f5f5;
+}
+
+#footer .container .text-muted {
+	margin: 20px 0;
+}
+
+.mg10bt {
+	margin-top: 5px;
+}
+
+.thumbnail img { min-width:200px; width:200px; } 
+
+.form-signin {
+	max-width: 330px;
+	padding: 15px;
+	margin: 0 auto;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>{#APP_NAME#}</title>
+
+		<!-- Bootstrap core CSS -->
+		<link rel="stylesheet" href="http://{#APP_URL_URL#}res/css/bootstrap.min.css">
+		<!-- Custom styles for this template -->
+		<link href="http://{#APP_URL_URL#}res/themes/{#TEMPLATE_STYLE#}/style.css" rel="stylesheet">
+		<link href="http://{#APP_URL_URL#}res/css/theme.bootstrap.css" rel="stylesheet">
+		<link href="http://{#APP_URL_URL#}res/css/jquery.tablesorter.pager.css" rel="stylesheet">
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<script src="http://{#APP_URL_URL#}res/js/jquery.min.js"></script>
+		<script src="http://{#APP_URL_URL#}res/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="page-header">
+			{$header}
+		</div>
+		{$navigation}
+		{$content}
+		<div id="footer">
+			<div class="container">
+				<p class="text-muted credit">
+					{$footer} | <a href="{$administrationlink}">{$administrationlinktext}</a>
+				</p>
+			</div>
+		</div>
+		<!-- Bootstrap core JavaScript
+		================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+	</body>
+</html>

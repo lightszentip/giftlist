@@ -1,0 +1,18 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <form method="post" action="index.php?mapping=resetpassword" name="password_reset_form">
+            <div class="modal-body">
+                {if="$login->errors"}<div class="alert alert-danger">{$errors=$login->errors}
+                    {loop="errors"}<p>{$value}</p>{/loop}</div>{/if}
+                {if="$login->messages"}<div class="alert alert-info">{$messages=$login->messages}
+                    {loop="messages"}<p>{$value}</p>{/loop}</div>{/if}
+                {if="!$isSuccess"}<label for="user_name">{#WORDING_REQUEST_PASSWORD_RESET#}</label>
+                <input id="user_name" type="text" name="user_name" required />{/if}
+            </div>
+            <div class="modal-footer">
+              {if="!$isSuccess"}  <input type="submit" class="btn btn-lg" name="request_password_reset" value="{#WORDING_RESET_PASSWORD#}" />{/if}
+            </div>
+        </form>
+    </div>
+</div>
+

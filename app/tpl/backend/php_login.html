@@ -1,0 +1,42 @@
+<div class="container">
+    {if="$login->errors"}<div class="alert alert-danger">{$errors=$login->errors}
+        {loop="errors"}<p>{$value}</p>{/loop}</div>{/if}
+    {if="$login->messages"}<div class="alert alert-info">{$messages=$login->messages}
+        {loop="messages"}<p>{$value}</p>{/loop}</div>{/if}
+    <form class="form-signin" role="form" action="index.php?mapping=login" method="POST" name="loginform">
+        <h2 class="form-signin-heading">{$messageResolver->getMessage("login_title")}</h2>
+        <input type="text" class="form-control" name="user_name" placeholder="{$messageResolver->getMessage('login_username')}" required autofocus>
+        <input type="password" name="user_password"  autocomplete="off" class="form-control" placeholder="{$messageResolver->getMessage('login_password')}" required>
+        <label class="checkbox">
+            <input type="checkbox" name="user_rememberme" value="1"> {$messageResolver->getMessage("login_rememberme")}
+        </label>
+        <input class="btn btn-lg btn-primary btn-block" type="submit" name="login" value="{$messageResolver->getMessage('login_button_signin')}" />
+        <input type="hidden" name="sphvp" value="{$sphvp}" />
+        <input type="hidden" id="next" name="next" value="{$target}">
+    </form>
+    <ul class="nav nav-pills">
+        <li><a href="?mapping=">{$messageResolver->getMessage('navigation_frontend')}</a></li>
+        <li><a data-toggle="modal" href="index.php?mapping=resetpassword" data-target="#myModal">{$messageResolver->getMessage('navigation_passwordforgotten')}</a></li>
+    </ul>
+        <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+        
+</div>
+
+

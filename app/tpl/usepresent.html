@@ -1,0 +1,48 @@
+	<div class="container">
+	<script src="http://imsky.github.io/holder/holder.js"></script>
+		{if="$isError"}
+		{include="error"}
+		{else}
+		<div class="panel panel-success">
+		<div class="panel-heading">{$messageResolver->getMessage("usepresent_panel_title",$present->getTitle())}</div>
+		<div class="panel-body"><p>
+			{$messageResolver->getMessage("usepresent_panel_subtitle",$present->getCode())}
+		</p>
+		<dl class="dl-horizontal text-overflow">
+			<dt>
+				{$messageResolver->getMessage("usepresent_title")}
+			</dt>
+			<dd>
+				{$present->getTitle()}
+			</dd>
+			<dt>
+				{$messageResolver->getMessage("usepresent_description")}
+			</dt>
+			<dd>
+				{$present->getDescription()}
+			</dd>
+			<dt>
+				{$messageResolver->getMessage("usepresent_image")}
+			</dt>
+			<dd>
+			<div class="thumbnail">
+      <img data-src="{function="($present->isImage() ? '' : 'holder.js/200x200/' )"}" alt="{$present->getTitle()}" src="{$present->getImagePath()}" class="img-responsive"/>
+    </div>
+			</dd>
+			<dt>
+				{$messageResolver->getMessage("usepresent_links")}
+			</dt>
+			{$links=$present->getLinks()}
+			<dd>
+				<ul>
+                                {loop="links"}
+                                <li>
+                                    <a href="{$value}" target="_blank">{$value}</a>
+                                </li>
+                                {/loop}
+                            </ul>
+			</dd>
+		</dl></div>
+		</div>
+		{/if}
+	</div>

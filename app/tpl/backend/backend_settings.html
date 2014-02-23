@@ -1,0 +1,69 @@
+<div class="page-header">
+    <h1>{$messageResolver->getMessage("settings_form_title")}</h1>
+</div>
+{if="$changesettings"}<div class="alert alert-success">{$changesettings}</div>{/if}
+{if="$error->hasErrors('settings')"}<div class="alert alert-danger">{$error->getMessage("settings")}</div>{/if}
+<form role="form" action="index.php?mapping=admin/settings/all" class="form-horizontal" method="post">
+    <input type="hidden" name="checknew" value="true" />
+    <div class="form-group {if="$error->hasErrors('domainurl')"}has-error{/if}">
+                    {if="$error->hasErrors('domainurl')"}<div class="alert alert-danger">{$messageResolver->getMessage($error->getMessage("domainurl"))}</div>{/if}
+                    <label for="inputDomainUrl" class="col-sm-2 control-label">{$messageResolver->getMessage("settings_form_label_domainurl")}</label>
+                    <div class="col-sm-8">
+                        <input type="url" name="domainurl" maxlength="50" class="form-control" id="inputDomainUrl" placeholder="Domain Url" value="{$domainurl}" />
+                    </div>
+                </div>
+                <div class="form-group {if="$error->hasErrors('emailaddress')"}has-error{/if}">
+                                {if="$error->hasErrors('emailaddress')"}<div class="alert alert-danger">{$messageResolver->getMessage($error->getMessage("emailaddress"))}</div>{/if}
+                                <label for="inputEmailAddress" class="col-sm-2 control-label">{$messageResolver->getMessage("settings_form_label_emailaddress")}</label>
+                                <div class="col-sm-8">
+                                    <input type="email" name="emailaddress" maxlength="50" class="form-control" id="inputEmailAddress" placeholder="Domain Url" value="{$emailaddress}" />
+                                    <span class="help-block">{$messageResolver->getMessage("settings_form_label_emailaddress_info")}</span>
+                                </div>
+                            </div>
+                            <div class="form-group {if="$error->hasErrors('appname')"}has-error{/if}">
+                                            {if="$error->hasErrors('appname')"}<div class="alert alert-danger">{$messageResolver->getMessage($error->getMessage("appname"))}</div>{/if}
+                                            <label for="inputAppName" class="col-sm-2 control-label">{$messageResolver->getMessage("settings_form_label_appname")}</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" name="appname" maxlength="50" class="form-control" id="inputAppName" placeholder="App Name" value="{$appname}" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group {if="$error->hasErrors('appabbreviation')"}has-error{/if}">
+                                                        {if="$error->hasErrors('appabbreviation')"}<div class="alert alert-danger">{$messageResolver->getMessage($error->getMessage("appabbreviation"))}</div>{/if}
+                                                        <label for="inputAppAbbreviation" class="col-sm-2 control-label">{$messageResolver->getMessage("settings_form_label_appabbreviations")}</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" name="appabbreviation" maxlength="50" class="form-control" id="inputAppAbbreviation" placeholder="App Abbreviation" value="{$appabbreviation}" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group {if="$error->hasErrors('logmode')"}has-error{/if}">
+                                                                    {if="$error->hasErrors('logmode')"}<div class="alert alert-danger">{$messageResolver->getMessage($error->getMessage("logmode"))}</div>{/if}
+                                                                    <label for="selectLogMode" class="col-sm-2 control-label">{$messageResolver->getMessage("settings_form_label_logmode")}</label>
+                                                                    <div class="col-sm-2">
+                                                                        <select class="form-control" name="logmode">
+                                                                            {loop="logmodes"}<option {if="$logmode == $value"}selected{/if}>{$value}</option>{/loop}
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group {if="$error->hasErrors('template')"}has-error{/if}">
+                                                                                {if="$error->hasErrors('template')"}<div class="alert alert-danger">{$messageResolver->getMessage($error->getMessage("template"))}</div>{/if}
+                                                                                <label for="selectTemplate" class="col-sm-2 control-label">{$messageResolver->getMessage("settings_form_label_template")}</label>
+                                                                                <div class="col-sm-2">
+                                                                                    <select class="form-control" name="template">
+                                                                                        {loop="templates"}<option {if="$template == $value"}selected{/if}>{$value}</option>{/loop}
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group {if="$error->hasErrors('codelength')"}has-error{/if}">
+                                                                                            {if="$error->hasErrors('codelength')"}<div class="alert alert-danger">{$messageResolver->getMessage($error->getMessage("codelength"))}</div>{/if}
+                                                                                            <label for="inputCodeLength" class="col-sm-2 control-label">{$messageResolver->getMessage("settings_form_label_codelength")}</label>
+                                                                                            <div class="col-sm-2">
+                                                                                                <input type="number" name="codelength" maxlength="50" class="form-control" id="inputCodeLength" placeholder="Code Length" value="{$codelength}" />
+                                                                                            </div>
+                                                                                            <div class="col-sm-10">
+                                                                                                <span class="help-block">{$messageResolver->getMessage("settings_form_label_codelength_info")}</span>
+                                                                                            </div>
+
+                                                                                        </div>
+                                                                                        <button type="submit" class="btn btn-default">
+                                                                                            {$messageResolver->getMessage("settings_form_button_save")}
+                                                                                        </button>
+                                                                            </form>

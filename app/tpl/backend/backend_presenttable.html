@@ -1,0 +1,122 @@
+<script src="http://imsky.github.io/holder/holder.js"></script>
+{if="$changePresent"}<div class="alert alert-success">{$infomessage}</div>{/if}
+{if="$errorPresent"}<div class="alert alert-danger">{$errormessage}</div>{/if}
+<button type="button" class="reset btn btn-primary mg10bt" data-column="0" data-filter=""><i class="icon-white icon-refresh glyphicon glyphicon-refresh"></i> {$messageResolver->getMessage('presenttable_reset_filters')}</button>
+<table class="table table-striped table-hove zebra-striped" id="sortTableExample">
+    <thead><tr>
+            <th class="filter-false" data-sorter="false">{$messageResolver->getMessage("presenttable_image")}</th>
+            <th class="{sorter: 'text'}">{$messageResolver->getMessage("presenttable_title")}</th>
+            <th data-sorter="false">{$messageResolver->getMessage("presenttable_description")}</th>
+            <th class="filter-select filter-exact" data-placeholder="{$messageResolver->getMessage('presenttable_status_select')}">{$messageResolver->getMessage("presenttable_status")}</th>
+            <th data-sorter="false">{$messageResolver->getMessage("presenttable_links")}</th>
+            <th class="filter-false" data-sorter="false"></th>
+        </tr></thead>
+    <tfoot>
+        <tr>
+            <th colspan="7" class="ts-pager form-horizontal">
+                <button type="button" class="btn first"><i class="icon-step-backward glyphicon glyphicon-step-backward"></i></button>
+                <button type="button" class="btn prev"><i class="icon-arrow-left glyphicon glyphicon-backward"></i></button>
+                <span class="pagedisplay"></span> <!-- this can be any element, including an input -->
+                <button type="button" class="btn next"><i class="icon-arrow-right glyphicon glyphicon-forward"></i></button>
+                <button type="button" class="btn last"><i class="icon-step-forward glyphicon glyphicon-step-forward"></i></button>
+                <select class="pagesize input-mini" title="{$messageResolver->getMessage('presenttable_page_size')}">
+                    <option selected="selected" value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                </select>
+            </th>
+        </tr>
+    </tfoot>
+    <tbody>
+        {loop="presents"}
+        {$links=$value->getLinks()}
+        {$status=$value->getStatus()}
+        <tr>
+            <td><div class="thumbnail"><img data-src="{function="($value->isImage() ? '' : 'holder.js/200x200/' )"}" src="{$value->getImagePath()}" class="img-responsive"></div></td>
+            <td>{$value->getTitle()}</td>
+            <td class="span3">{$value->getDescription()}</td>
+            <td>{if="$status == 1"}{$messageResolver->getMessage("adminpresenttable_status_choose")}{else}{$messageResolver->getMessage("adminpresenttable_status_free")}{/if}</td>
+            <td>
+                <ul>{loop="links"}<li><a href="{$value2}" target="_blank">{$value2}</a></li>{/loop}</ul></td>
+            <td>{if="$status != 1"}<a href="?mapping=admin/present/edit&id={$value->getId()}" class="btn btn-default" role="button">{$messageResolver->getMessage("adminpresenttable_button_edit")}</a>
+                <br />
+                <a data-href="?mapping=admin/present/delete&presentId={$value->getId()}" class="btn btn-default" data-original-title="{$messageResolver->getMessage('adminpresenttable_button_delete')}?" 
+                   data-toggle="confirmdelete-singleton" data-placement="bottom" data-btnOkLabel='<i class="icon-ok-sign icon-white"></i> {$messageResolver->getMessage("adminpresenttable_button_delete_yes")}'
+                   data-btnCancelLabel='<i class="icon-remove-sign"></i> {$messageResolver->getMessage("adminpresenttable_button_delete_no")}' role="button">{$messageResolver->getMessage("adminpresenttable_button_delete")}{/if}</a></td>
+        </tr>
+        {/loop}
+    </tbody>
+</table>
+<script type="text/javascript" src="http://{#APP_URL_URL#}res/js/bootstrap-confirmation.js"></script>
+<script type="text/javascript" src="http://{#APP_URL_URL#}res/js/application-confirm.js"></script>
+<script type="text/javascript" src="http://{#APP_URL_URL#}res/js/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="http://{#APP_URL_URL#}res/js/jquery.tablesorter.pager.min.js"></script>
+<script type="text/javascript" src="http://{#APP_URL_URL#}res/js/jquery.tablesorter.widgets.min.js"></script>
+<script type="text/javascript" >
+    $(function() {
+
+        $.extend($.tablesorter.themes.bootstrap, {
+            // these classes are added to the table. To see other table classes available,
+            // look here: http://twitter.github.com/bootstrap/base-css.html#tables
+            table: 'table table-bordered',
+            caption: 'caption',
+            header: 'bootstrap-header', // give the header a gradient background
+            footerRow: '',
+            footerCells: '',
+            icons: '', // add "icon-white" to make them white; this icon class is added to the <i> in the header
+            sortNone: 'bootstrap-icon-unsorted',
+            sortAsc: 'icon-chevron-up glyphicon glyphicon-chevron-up', // includes classes for Bootstrap v2 & v3
+            sortDesc: 'icon-chevron-down glyphicon glyphicon-chevron-down', // includes classes for Bootstrap v2 & v3
+            active: '', // applied when column is sorted
+            hover: '', // use custom css here - bootstrap class may not override it
+            filterRow: '', // filter row class
+            even: '', // odd row zebra striping
+            odd: ''  // even row zebra striping
+        });
+
+        $("table#sortTableExample").tablesorter({
+            // this will apply the bootstrap theme if "uitheme" widget is included
+            // the widgetOptions.uitheme is no longer required to be set
+            theme: "bootstrap",
+            widthFixed: true,
+            headerTemplate: '{content} {icon}', // new in v2.7. Needed to add the bootstrap icon!
+
+            // widget code contained in the jquery.tablesorter.widgets.js file
+            // use the zebra stripe widget if you plan on hiding any rows (filter widget)
+            widgets: ["uitheme", "filter", "zebra"],
+            widgetOptions: {
+                // using the default zebra striping class name, so it actually isn't included in the theme variable above
+                // this is ONLY needed for bootstrap theming if you are using the filter widget, because rows are hidden
+                zebra: ["even", "odd"],
+                // reset filters button
+                filter_reset: ".reset"
+
+                        // set the uitheme widget to use the bootstrap theme class names
+                        // this is no longer required, if theme is set
+                        // ,uitheme : "bootstrap"
+
+            }
+        })
+                .tablesorterPager({
+                    // target the pager markup - see the HTML block below
+                    container: $(".ts-pager"),
+                    // target the pager page select dropdown - choose a page
+                    cssGoto: ".pagenum",
+                    // remove rows from the table to speed up the sort of large tables.
+                    // setting this to false, only hides the non-visible rows; needed if you plan to add/remove rows with the pager enabled.
+                    removeRows: false,
+                    // output string - default is '{page}/{totalPages}';
+                    // possible variables: {page}, {totalPages}, {filteredPages}, {startRow}, {endRow}, {filteredRows} and {totalRows}
+                    output: '{startRow} - {endRow} / {filteredRows} ({totalRows})'
+
+                });
+        $('button.filter').click(function() {
+            var col = $(this).data('column'),
+                    txt = $(this).data('filter');
+            $('table').find('.tablesorter-filter').val('').eq(col).val(txt);
+            $('table').trigger('search', false);
+            return false;
+        });
+    });
+</script>

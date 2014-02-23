@@ -1,0 +1,35 @@
+<div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="shareModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="shareModalLabel">{$messageResolver->getMessage("usepresent_share_success_title")}</h4>
+			</div>
+			<div class="modal-body">
+			<p>{$messageResolver->getMessage("usepresent_share_success_text")}</p>
+				<button type="button" class="btn btn-default" data-dismiss="modal">
+					{$messageResolver->getMessage("usepresent_share_success_close")}
+				</button>
+			</div>
+			<div class="modal-footer">
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script type="text/javascript">
+function onSubmitShareForm() {
+    var url = "index.php?mapping=present/share"; // the script where you handle the form input.
+    $.ajax({
+           type: "POST",
+           url: url,
+           data: $("#shareForm").serialize(), // serializes the form's elements.
+           success: function(data)
+           {
+               $("#shareModal").html($( data ).find(".modal-dialog"));
+           }
+         });
+    return false; // avoid to execute the actual submit of the form.
+};
+</script>
