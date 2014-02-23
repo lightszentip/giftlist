@@ -80,6 +80,8 @@ If you have a question, problems or feedback then you can send a mail or create 
 - Medoo DB => [http://medoo.in/api/new](http://medoo.in/api/new)
 - PHP Setup / Installer Script => [http://www.effiziente-webprogrammierung.info/php-scripts/setup-wizard-installer](http://www.effiziente-webprogrammierung.info/php-scripts/setup-wizard-installer)
 - PHP Login von http://www.php-login.net/ => [https://github.com/panique/php-login](https://github.com/panique/php-login) -> Version Advanced
+- KLogger von Kenny => [http://codefury.net/projects/klogger/](http://codefury.net/projects/klogger/)
+- Kint => [http://raveren.github.io/kint/](http://raveren.github.io/kint/)
 
 ## Verwendete JS/HTML/CSS Komponeneten / Used JS/HTML/CSS components: ##
 
