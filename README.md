@@ -1,5 +1,7 @@
 # Presentlist / Geschenkeliste #
 
+http://lightszentip.github.io/giftlist/
+
 => !! For English => english is under german !!
 
 Presentlist ist eine Geschenkliste auf der man seine Wünsche zur Hochzeit, Geburtstag oder anderen Anlässen auflisten kann. Dabei kann man einen Titel, Beschreibung und auch ein Bild zum Geschnenk angeben, sowie Links zu Händlern oder dem Produkt angeben. Wenn sich dann jemand ein Geschenk von der Liste nimmt, ist es für die anderen nicht mehr sichtbar. Man kann gewählte Geschenke aber auch wieder freigeben und der Administrator sieht nicht wer sich welches Geschenk genommen hat. 
