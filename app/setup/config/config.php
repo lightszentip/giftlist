@@ -15,7 +15,7 @@ $config['database_file_finished'] = "config/custom-config.php";
 // INTRODUCTION
 $introduction = array();
 $introduction["product"] = "Presentlist (PLAPP)";
-$introduction["productVersion"] = "0.9.0";
+$introduction["productVersion"] = "0.9.1";
 $introduction["company"] = "";
 
 // SERVER REQUIREMENTS
