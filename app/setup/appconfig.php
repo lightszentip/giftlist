@@ -26,7 +26,7 @@ if (isset($domainUrl) && $domainUrl != false) {
         $error = true;
         $isErrorEmailAddress = true;
     }
-    if (!filter_var($domainUrl, FILTER_VALIDATE_URL) || ($domainUrl === "" || substr($domainUrl, -strlen("/")) === $domainUrl) || IsNullOrEmptyString($domainUrl)) {
+    if (!filter_var($domainUrl, FILTER_VALIDATE_URL) || $domainUrl === "" || IsNullOrEmptyString($domainUrl)) {
         $error = true;
         $isErrorDomainUrl = true;
     }
@@ -37,6 +37,9 @@ if (isset($domainUrl) && $domainUrl != false) {
     if (IsNullOrEmptyString($appabbreviation)) {
         $error = true;
         $isErrorAppAbbreviation = true;
+    }
+    if (substr($domainUrl,-1) != "/") {
+        $domainUrl = $domainUrl."/";
     }
     if (!$error) {
         // save settings in database config file

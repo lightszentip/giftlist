@@ -51,16 +51,16 @@
 		<label class="col-sm-2 control-label">Length for code</label>
 		<div class="col-sm-2">
 			<input class="form-control" type="number" name="codelength" value="<?php echo $codeLength; ?>">
-			
+
 	 	</div>
-	 	<span class="help-block">(The Length of the code to release a present)</span>
+	 	<span class="help-block">(Length of the keys to the release of a gift (Key has a certain length and is again added to the length specified here))</span>
 	</div>
 	<hr>
 	<?php } ?>
 	<?php if ($goToNextStep) { ?>
 
 		<input type="hidden" name="nextStep" value="database">
-		
+
 		<a href="index.php" class="btn btn-danger">
 			<img src="css/blueprint/plugins/buttons/icons/cross.png" alt=""/> Cancel
 </a>

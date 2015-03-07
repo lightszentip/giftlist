@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS `%%prefix%%presententries` (
   `id` BIGINT NOT NULL AUTO_INCREMENT,
   `title` varchar(50) NOT NULL,
   `status` varchar(25) NOT NULL,
-  `imagepath` varchar(50) NULL,
+  `imagepath` varchar(500) NULL,
   `description` varchar(1200) NOT NULL,
   `code` varchar(255) NULL UNIQUE,
   `links` varchar(500) NULL,
