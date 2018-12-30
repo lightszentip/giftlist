@@ -104,7 +104,8 @@ class PresentDao {
     }
     
     public function createPresent(PresentModel $present) {
-        $id = $this -> jdbcTemplate ->insert($this->tableName, array(self::COLUMN_EDIT_DATE => date("Y-m-d H:i:s"),self::COLUMN_DESCRIPTION => $present->getDescription(), self::COLUMN_IMAGEPATH => $present->getImagePath(), self::COLUMN_TITLE=>$present->getTitle(),self::COLUMN_LINKS=>$present->getLinks(),self::COLUMN_STATUS=>PRESENT_STATUS_NOTUSE));
+        $status = self::PRESENT_STATUS_NOTUSE;
+        $id = $this -> jdbcTemplate ->insert($this->tableName, array(self::COLUMN_EDIT_DATE => date("Y-m-d H:i:s"),self::COLUMN_DESCRIPTION => $present->getDescription(), self::COLUMN_IMAGEPATH => $present->getImagePath(), self::COLUMN_TITLE=>$present->getTitle(),self::COLUMN_LINKS=>$present->getLinks(),self::COLUMN_STATUS=> $status));
         return $id;
     }
     
