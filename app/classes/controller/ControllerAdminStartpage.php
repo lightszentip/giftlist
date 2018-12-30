@@ -35,7 +35,7 @@ class ControllerAdminStartpage implements InterfaceController {
         if (!empty($success) && ($success == "createPresent" || $success == "editPresent" || $success == "deletePresent")) {
             $args = EscapeHelper::escape($this -> request['get']['args'], EscapeHelper::TARGET_STRING);
             $parameter = base64_decode($args);
-            list($paramPresentId, $paramResult) = split("&", $parameter);
+            list($paramPresentId, $paramResult) = explode("&", $parameter);
             $presentId = EscapeHelper::escape(str_replace("presentId=", "", $paramPresentId), EscapeHelper::TARGET_NUMBER);
             if ($success == "createPresent") {
                 $present = $this -> presentDao -> getById($presentId);

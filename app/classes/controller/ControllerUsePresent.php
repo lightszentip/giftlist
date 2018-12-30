@@ -26,7 +26,7 @@ class ControllerUsePresent implements InterfaceController {
         if (!empty($success) && $success == "view") {
             $args = EscapeHelper::escape($this->request['get']['args'], EscapeHelper::TARGET_STRING);
             $parameter = base64_decode($args);
-            list($parameterCode, $parameterId) = split("&", $parameter);
+            list($parameterCode, $parameterId) = explode("&", $parameter);
             $presentId = EscapeHelper::escape(str_replace("presentId=", "", $parameterId), EscapeHelper::TARGET_NUMBER);
             $code = EscapeHelper::escape(str_replace("code=", "", $parameterCode), EscapeHelper::TARGET_STRING);
             if (!empty($presentId) && !empty($code)) {
