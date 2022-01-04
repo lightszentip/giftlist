@@ -21,7 +21,7 @@
         <link rel="stylesheet" href="{{ asset('css/ribbon.css') }}">
     @endif
 </head>
-<body class="font-sans antialiased">
+<body class="font-sans antialiased bg-light text-dark">
 @if( !App::environment(['Production','prd','PROD']))
     <div class="md:visible ribbon ribbon-top-left"><span>{{App::environment()}} Test</span></div>
 @endif
@@ -33,6 +33,11 @@
 
     <main class="flex-shrink-0">
         <div class="container">
+            @if ($message = Session::get('success'))
+                <div class="alert alert-success">
+                    <p>{{ $message }}</p>
+                </div>
+            @endif
             @if (isset($header))
                 {{ $header }}
             @endif

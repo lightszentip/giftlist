@@ -16,9 +16,9 @@ class CreatePresentLinksTable extends Migration
         Schema::create('present_links', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->unsignedInteger('present_id');
+            $table->unsignedBigInteger('presents_id');
             $table->string('link')->nullable(true);
-            $table->foreign('present_id')->references('id')->on('presents');
+            $table->foreign('presents_id')->references('id')->on('presents');
         });
     }
 

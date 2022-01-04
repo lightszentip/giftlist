@@ -1,5 +1,16 @@
 # Presentlist / Geschenkeliste #
 
+## Setup
+
+To create default user and permission
+
+````shell
+php artisan migrate
+php artisan db:seed
+````
+
+
+
 http://lightszentip.github.io/giftlist/
 
 [![Build Status](https://travis-ci.org/lightszentip/giftlist.svg?branch=master)](https://travis-ci.org/lightszentip/giftlist)

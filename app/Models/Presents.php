@@ -14,6 +14,13 @@ class Presents extends Model
         return $this->hasMany(PresentLinks::class);
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    protected $guarded = [
+        'id', 'created_at', 'updated_at',
+    ];
+
     public function usePresent(bool $isCodeActive = false)
     {
         $this->status = 1;
