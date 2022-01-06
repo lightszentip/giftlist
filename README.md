@@ -1,30 +1,66 @@
 # Presentlist / Geschenkeliste #
 
-## Setup
+## Current Version
 
-To create default user and permission
+[![GitHub version](https://badge.fury.io/gh/lightszentip%2Fgiftlist.svg)](https://badge.fury.io/gh/lightszentip%2Fgiftlist)
 
+## Installation
+### Installation over Release Zip
+
+* unzip
+* set www root to public/
+* run install_sql.sql on your database
+* create .env file in the root dir and set the settings
+
+#### Upgrade
+
+* unzip to new/
+* replace all files from new or delete and insert all files from new (exclude .env)
+* run:
 ````shell
 php artisan migrate
 php artisan db:seed
 ````
 
+### Setup over repo
+
+* clone the repository
+* create .env file in the root dir and set the settings
+* ```composer update```
+* ```npm install```
+* ```npm run dev```
+* start with ```php artisan server``` or set your www root to public
+* install db with ```php artisan migrate```
 
 
+#### To create default user and permission
+
+````shell
+php artisan db:seed
+````
+
+#### Upgrade
+
+* git pull
+* ```composer update```
+* ```npm install```
+* ```npm run dev```
+````shell
+php artisan migrate
+php artisan db:seed
+````
+
+## Other
 http://lightszentip.github.io/giftlist/
-
-[![Build Status](https://travis-ci.org/lightszentip/giftlist.svg?branch=master)](https://travis-ci.org/lightszentip/giftlist)
 
 => !! For English => english is under german !!
 
 Presentlist ist eine Geschenkliste auf der man seine Wünsche zur Hochzeit, Geburtstag oder anderen Anlässen auflisten kann. Dabei kann man einen Titel, Beschreibung und auch ein Bild zum Geschnenk angeben, sowie Links zu Händlern oder dem Produkt angeben. Wenn sich dann jemand ein Geschenk von der Liste nimmt, ist es für die anderen nicht mehr sichtbar. Man kann gewählte Geschenke aber auch wieder freigeben und der Administrator sieht nicht wer sich welches Geschenk genommen hat. 
 
-![](https://raw.github.com/lightszentip/giftlist/gh-pages/screenshot01.PNG)
 ![](https://raw.github.com/lightszentip/giftlist/gh-pages/screenshot03.PNG)
 ![](https://raw.github.com/lightszentip/giftlist/gh-pages/screenshot04.PNG)
 
 ## Funktionen ##
-- Install Wizard
 - Geschenkeliste
 - Detail Ansicht von Geschenken
 - Geschenk auswählen
@@ -60,7 +96,6 @@ The app presentlist is show the wishes from wedding, birthday or from other occa
 
 
 ## Functions ##
-- Install Wizard
 - list with presents
 - detail view of present
 - use a present
@@ -77,7 +112,7 @@ The app presentlist is show the wishes from wedding, birthday or from other occa
 
 ## Requirements ##
 
-- PHP 5.3.7 or higher
+- PHP 7.4 or higher
 - MySQL Database (other database only support by you edit the source files)
 - PHP PDO Support for MySQL active (extension=php_pdo_mysql.dll)
 
@@ -87,22 +122,3 @@ The app presentlist is show the wishes from wedding, birthday or from other occa
 Unpack the zip file to the target dir and open the url in your browser. Follow the steps of install wizard. Delete the setup folder and change the password and email address of  admin account.
 
 If you have a question, problems or feedback then you can send a mail or create a new issue.
-
-## Verwendete PHP Libraries / Used lbraries: ##
-
-- Rain TPL => [https://github.com/rainphp/raintpl](https://github.com/rainphp/raintpl)
-- php-i18n von Philipp Schröer=> [https://github.com/Philipp15b/php-i18n?files=1](https://github.com/Philipp15b/php-i18n?files=1)
-- Medoo DB => [http://medoo.in/api/new](http://medoo.in/api/new)
-- PHP Setup / Installer Script => [http://www.effiziente-webprogrammierung.info/php-scripts/setup-wizard-installer](http://www.effiziente-webprogrammierung.info/php-scripts/setup-wizard-installer)
-- PHP Login von http://www.php-login.net/ => [https://github.com/panique/php-login](https://github.com/panique/php-login) -> Version Advanced
-- KLogger von Kenny => [http://codefury.net/projects/klogger/](http://codefury.net/projects/klogger/)
-- Kint => [http://raveren.github.io/kint/](http://raveren.github.io/kint/)
-
-## Verwendete JS/HTML/CSS Komponeneten / Used JS/HTML/CSS components: ##
-
-- TableSorter von Christian Bach => [http://mottie.github.io/tablesorter/](https://github.com/Mottie/tablesorter)
-- Bootstrap 3.1 => [http://getbootstrap.com/](http://getbootstrap.com/)
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/lightszentip/giftlist/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-

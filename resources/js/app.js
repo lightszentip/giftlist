@@ -25,6 +25,7 @@ document.querySelectorAll('.btn-clipboard').forEach((button) => {
 });
 
 require('light-switch-bootstrap/switch');
+require('dropzone');
 //window.lightswitchbootstrap();
 
 //https://stackoverflow.com/questions/46643667/javascript-function-is-not-defined-with-laravel-mix

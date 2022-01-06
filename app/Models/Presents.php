@@ -9,6 +9,13 @@ class Presents extends Model
 {
     use HasFactory;
 
+    /**
+     * Handle events after all transactions are committed.
+     *
+     * @var bool
+     */
+    public $afterCommit = true;
+
     public function links()
     {
         return $this->hasMany(PresentLinks::class);

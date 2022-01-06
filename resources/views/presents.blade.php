@@ -50,9 +50,8 @@
                         @foreach($presents as $present)
                             <tr>
                                 <td>
-                                    <div class="thumbnail"><img
-                                            data-src="{function="{{($present->isImageExists() ? '' : 'holder.js/200x200/' )}}
-                                        "}" src="{{$present->imagepath}}" class="img-responsive">
+                                    <div class="thumbnail"><img style="width: 200px"
+                                            data-src="{{($present->isImageExists() ? '' : 'holder.js/200x200/?auto=yes' )}}" src="{{asset('files').'/'.$present->imagepath}}" class="img-responsive rounded">
                                     </div>
                                 </td>
                                 <td>{{$present->title}}</td>
@@ -96,9 +95,8 @@
                         @foreach($presents as $present)
                             <div class="col-sm-6 col-md-3">
                                 <div class="thumbnail">
-                                    <img
-                                        data-src="{function="{{($present->isImageExists() ? '' : 'holder.js/200x200/' )}}
-                                    "}" src="{{$present->imagepath}}" class="img-responsive">
+                                    <img style="width: 200px"
+                                        data-src="{{($present->isImageExists() ? '' : 'holder.js/200x200/' )}}" src="{{asset('files').'/'.$present->imagepath}}" class="img-responsive rounded">
                                     <div class="caption">
                                         <h3>{{$present->title}}</h3>
                                         <p style="word-wrap: break-word;">

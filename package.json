@@ -24,6 +24,8 @@
         "sass-loader": "^12.4.0"
     },
     "dependencies": {
+        "dropzone": "^5.9.3",
+        "holderjs": "^2.9.9",
         "light-switch-bootstrap": "^0.1.3"
     }
 }

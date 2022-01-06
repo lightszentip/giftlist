@@ -36,7 +36,7 @@
             <div class="navbar-nav">
                 <div class="nav-item text-nowrap">
                     <a href="{{ route('presents.show') }}"
-                       class="nav-link px-3">{{__('messages-pages.menu_presents')}}</a>
+                       class="nav-link px-3">{{__('messages-page.menu_presents')}}</a>
                 </div>
                 @if (Route::has('login'))
 

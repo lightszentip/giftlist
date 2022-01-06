@@ -16,7 +16,8 @@
     @livewireStyles
 
     <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}" defer></script>
+    <script src="{{ mix('js/app.js') }}"></script>
+    <script src="{{ asset('js/holder.js')}}"></script>
     @if( !App::environment(['Production','prd','PROD']))
         <link rel="stylesheet" href="{{ asset('css/ribbon.css') }}">
     @endif
@@ -39,7 +40,7 @@
                 </div>
             @endif
             @if (isset($header))
-                {{ $header }}
+               {{ $header }}
             @endif
             {{ $slot }}
         </div>
