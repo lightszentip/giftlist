@@ -1,0 +1,56 @@
+
+#lightSwitch {
+    transform: scale(1.0);
+}
+
+/* logo-app */
+.logo-container ul li a {
+    text-decoration: none !important;
+    display: inline-block;
+}
+
+.logo-holder {
+    text-align: center;
+}
+
+.logo-app h3 {
+    color: #e74c3c;
+    font-weight: 300;
+    font-size: 50px;
+    line-height: 0.6;
+    font-family: 'Bangers', cursive;
+    letter-spacing: 5px;
+}
+
+.logo-app p {
+    font-size: 14px;
+    margin-left: 0;
+    color: #545454;
+    font-weight: 400;
+    text-transform: capitalize;
+    font-style: italic;
+    font-family: 'Mansalva', cursive;
+    position: relative;
+}
+
+.logo-app p:before {
+    position: absolute;
+    content: '';
+    width: 17px;
+    height: 12px;
+    background: #545454;
+    left: 0px;
+    top: 5px;
+}
+
+.logo-app p:after {
+    position: absolute;
+    content: '';
+    width: 17px;
+    height: 12px;
+    background: #545454;
+    right: 0px;
+    top: 5px;
+}
+
+
