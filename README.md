@@ -1,9 +1,8 @@
 # Presentlist / Geschenkeliste #
-
-## Current Version
-
-[![GitHub version](https://badge.fury.io/gh/lightszentip%2Fgiftlist.svg)](https://badge.fury.io/gh/lightszentip%2Fgiftlist)
-
+![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/lightszentip/giftlist?style=for-the-badge)
+![GitHub](https://img.shields.io/github/license/lightszentip/giftlist?style=for-the-badge)
+![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/lightszentip/giftlist?include_prereleases&style=for-the-badge)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/lightszentip/giftlist?style=for-the-badge)
 ## Installation
 ### Installation over Release Zip
 
