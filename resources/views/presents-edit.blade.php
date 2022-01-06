@@ -3,12 +3,11 @@
 
         <x-slot name="header">
             <h2 class="mt-5 m-5">
-                {{ __('presents.create_title') }}
+                {{ __('presents.edit_title',['title' => $present->title, 'id' => $present->id]) }}
             </h2>
         </x-slot>
 
         <div class="py-12">
-
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <strong>{{__('presents.error_title')}}!</strong> {{__('presents.error_title_text')}}<br><br>
@@ -21,16 +20,16 @@
             @endif
             <!-- Dropzone -->
                 <form action="{{route('uploadFile')}}" class='dropzone' ></form>
-                <form action="{{ route('presents.store') }}" method="POST" class="row g-3">
+                <form action="{{ route('presents.save',$present->id) }}" method="POST" class="row g-3">
                 @csrf
-                    <input type="hidden" id="imagepath" name="imagepath" />
+
                 <div class="row mb-3">
                     <label for="title" class="col-sm-2 col-form-label">{{__('presents.create_form_title')}}</label>
                     <div class="col-sm-10">
                         <input type="text" id="title" required name="title"
                                class="form-control @error('title') is-invalid @enderror"
                                placeholder=""
-                               value="{{ old('title') }}" maxlength="255"
+                               value="{{ old('title') ?? $present->title }}" maxlength="255"
                                @error('title')aria-describedby="validationServerTitle" @enderror>
                         @error('title')
                         <div id="validationServerTitle" class="invalid-feedback">{{ $message }}</div>
@@ -44,7 +43,7 @@
                         <textarea rows="4" id="description" name="description"
                                   class="form-control @error('description') is-invalid @enderror"
                                   placeholder=""
-                                  @error('description')aria-describedby="validationServerDescription" @enderror>{{ old('description') }}</textarea>
+                                  @error('description')aria-describedby="validationServerDescription" @enderror> {{ old('description',$present->description ?? '') }}</textarea>
                         @error('description')
                         <div id="validationServerDescription" class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -54,13 +53,13 @@
                     <label for="links"
                            class="col-sm-2 col-form-label">{{__('presents.create_form_links')}}</label>
                     <div class="col-sm-10">
-                        @forelse($present->links() as $link)
+                        @forelse($present->links as $link)
                             <div class="row linkform">
                                 <div class="col-md-10">
                                     <div class="input-group col-xs-10">
                                         <input type="url" name="links[]" class="form-control"
                                                id="inputLinks{$counter+1}"
-                                               placeholder="{{__("presents.form_label_links")}}" value=""/>
+                                               placeholder="{{__("presents.form_label_links")}}" value="{{$link->link}}"/>
                                         @if ( $loop->index > 0)
                                             <span class="input-group-btn"><button class="btn btn-danger removeLink"
                                                                                   type="button">{{__("presents.form_button_remove_link")}}
@@ -87,10 +86,28 @@
                         </div>
                     </div>
                 </div>
+                    <div class="row mb-3">
+                        <label for="title" class="col-sm-2 col-form-label">{{__('presents.create_form_imagepath')}}</label>
+                        <div class="col-sm-10">
+                                <img style="width: 200px" id="previewImagePresent"
+                                     data-src="{{($present->isImageExists() ? '' : 'holder.js/200x200/?auto=yes' )}}" src="{{asset('files').'/'.$present->imagepath}}" class="img-responsive rounded">
+
+
+                            <input type="hidden" id="imagepath" name="imagepath" />
+                            @error('imagepath')
+                            <div id="validationServerTitle" class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary m-2">Submit</button>
+                        <a href="{{ route('presents.management') }}" class="btn btn-primary m-2">
+                            {{__('messages-page.back')}}
+                        </a>
                     </div>
+
                 </div>
 
             </form>
@@ -137,6 +154,8 @@
                 alert(response.error);
             } else if(response.success == 1) {
                 $('#imagepath').val(response.link);
+                $('#previewImagePresent').attr('src','{{asset('files').'/'}}'+response.link);
+                $('#previewImagePresent').attr('data-src','');
             }
 
         });

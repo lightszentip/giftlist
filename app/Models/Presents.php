@@ -28,17 +28,19 @@ class Presents extends Model
         'id', 'created_at', 'updated_at',
     ];
 
-    public function usePresent(bool $isCodeActive = false)
+    public function usePresent(string $userText = '',bool $isCodeActive = true)
     {
-        $this->status = 1;
-        if($isCodeActive) {
+        $this->status = 2;
+        if($isCodeActive || empty($userText)) {
             $code = "";
-            $count = 0;
+            $count = 1;
             while($count > 0) {
                 $code = $this->getCodeValue();
                 $count = Presents::whereCode($code)->count();
             }
             $this->code = $code;
+        } else {
+            $this->code = $userText;
         }
     }
 
@@ -62,14 +64,28 @@ class Presents extends Model
         $this->status = 1;
     }
 
+    public function draftPresent()
+    {
+        $this->status = 0;
+    }
+
     private function getCodeValue() {
-        $signs =  array_merge(range('A', 'Z'), range(0, 9), array('$', '%', '/', '(', '_', '-', ';'));
+        $signs =  array_merge(range('A', 'Z'), range(0, 9), array('$', '/', '_', '-', ';'));
         $int_array = count($signs);
         $dates = array(date("Hmsdi"), date("Hdims"), date("msHdi"));
         $code = hash("crc32b", $dates[rand(0, count($dates) - 1)] . rand(0, 99));
-        for ($i = 0; $i < 35; $i++) {
+        for ($i = 0; $i < 20; $i++) {
             $code .= $signs[rand(0, $int_array - 1)];
         }
         return $code;
+    }
+
+    public function statusAsText() {
+        switch ($this->status) {
+            case 0: return __('presents.status_draft');
+            case 1: return __('presents.status_release');
+            case 2: return __('presents.status_select');
+            default : return __('presents.status_unkown');
+        }
     }
 }

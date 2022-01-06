@@ -18,19 +18,23 @@
                 @if(Auth::user() != null && Auth::user()->hasPermissionTo('createPresent'))
                 <li class="nav-item">
 
-                    <x-jet-nav-link href="{{ route('presents.create') }}" :active="request()->routeIs('presents*')">
+                    <x-jet-nav-link href="{{ route('presents.create') }}" :active="request()->routeIs('presents/create*')">
                         {{__('messages-page.menu_create_present')}}
                     </x-jet-nav-link>
 
 
                 </li>
                 @endif
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
+                    @if(Auth::user() != null && Auth::user()->hasPermissionTo('releasePresent'))
+                        <li class="nav-item">
+
+                            <x-jet-nav-link href="{{ route('presents.management') }}" :active="request()->routeIs('presents/list')">
+                                {{__('messages-page.menu_management_present')}}
+                            </x-jet-nav-link>
+
+
+                        </li>
+                    @endif
             </ul>
 
             <div class="navbar-nav">

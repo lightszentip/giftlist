@@ -1,6 +1,7 @@
 window._ = require('lodash');
 
-window.switch = require('light-switch-bootstrap/switch');
+
+//window.Switch = require('light-switch-bootstrap/switch.js');
 window.Dropzone = require('dropzone');
 Dropzone.autoDiscover = false;
 /**

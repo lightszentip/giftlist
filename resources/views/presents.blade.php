@@ -66,20 +66,38 @@
                                     </ul>
                                 </td>
                                 <td>
-                                    <button type="button" id="#fooo{$value->getId()}"
-                                            class="mg10bt btn  btn-secondary shareModalButton mg10bt"
-                                            data-id="{$value->getId()}" data-toggle="modal" data-target="#shareModal">
-                                        <span
-                                            class="glyphicon glyphicon-share-alt"></span> {{__('messages-page.presenttable_share')}}
-                                    </button>
-                                    <a href="index.php?mapping=present/view&presentId={$value->getId()}"
-                                       class="btn  btn-secondary  mg10bt"
+                                    <a href="{{route('presents.details',$present->id)}}"
+                                       class="btn  btn-secondary  mg10bt  m-2"
                                        role="button">{{__('messages-page.presenttable_button_details')}}</a>
-                                    <button class="btn btn-secondary usePresentModalButton mg10bt" data-toggle="modal"
-                                            data-id="{$value->getId()}" data-target="#usePresentModal">
-                                        {{__('messages-page.presenttable_button_useit')}}
-                                    </button>
+@if ($present->status == 1)
+                                    <a data-bs-toggle="modal" class="btn btn-warning" data-bs-target="#sharePresentModalLabel_{{$present->id}}"
+                                       data-action="{{ route('presents.share', $present->id) }}">  {{__('messages-page.presenttable_button_useit')}}</a>
 
+
+                                    <div class="modal fade" id="sharePresentModalLabel_{{$present->id}}" data-backdrop="static" tabindex="-1" role="dialog"
+                                         aria-labelledby="sharePresentModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="sharePresentModalLabel">{{__('messages-page.share_modal_title')}}</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <form action="{{ route('presents.share', $present->id) }}">
+                                                    <div class="modal-body">
+                                                        @csrf
+                                                        @method('POST')
+                                                        <h5 class="text-center">{{__('messages-page.share_modal_text',['id'=> $present->id,'title'=>$present->title])}}</h5>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                            {{__('messages-page.modal_share_cancel')}}</button>
+                                                        <button type="submit" class="btn btn-danger">{{__('messages-page.modal_share_select')}}</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
@@ -112,20 +130,37 @@
                                         </ul>
                                         </p>
                                         <p>
-                                            <button type="button" id="#fooo{$value->getId()}"
-                                                    class="btn  btn-secondary  shareModalButton"
-                                                    data-id="{$value->getId()}" data-toggle="modal"
-                                                    data-target="#shareModal">
-                                                <span
-                                                    class="glyphicon glyphicon-share-alt"></span>{{__('messages-page.presenttable_share')}}
-                                            </button>
-                                            <button class="btn  btn-secondary  usePresentModalButton" data-toggle="modal"
-                                                    data-id="{$value->getId()}" data-target="#usePresentModal">
-                                                {{__('messages-page.presenttable_button_useit')}}
-                                            </button>
-                                            <a href="index.php?mapping=present/view&presentId={$value->getId()}"
-                                               class="btn  btn-secondary "
+                                            <a href="{{route('presents.details',$present->id)}}"
+                                               class="btn  btn-secondary  mg10bt  m-2"
                                                role="button">{{__('messages-page.presenttable_button_details')}}</a>
+                                            @if ($present->status == 1)
+                                            <a data-bs-toggle="modal" class="btn btn-warning" data-bs-target="#sharePresentModalLabelb_{{$present->id}}"
+                                               data-action="{{ route('presents.share', $present->id) }}">  {{__('messages-page.presenttable_button_useit')}}</a>
+
+                                        <div class="modal fade" id="sharePresentModalLabelb_{{$present->id}}" data-backdrop="static" tabindex="-1" role="dialog"
+                                             aria-labelledby="sharePresentModalLabelb" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="sharePresentModalLabelb">{{__('messages-page.share_modal_title')}}</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <form action="{{ route('presents.share', $present->id) }}">
+                                                        <div class="modal-body">
+                                                            @csrf
+                                                            @method('POST')
+                                                            <h5 class="text-center">{{__('messages-page.share_modal_text',['id'=> $present->id,'title'=>$present->title])}}</h5>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                                {{__('messages-page.modal_share_cancel')}}</button>
+                                                            <button type="submit" class="btn btn-danger">{{__('messages-page.modal_share_select')}}</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @endif
                                         </p>
                                     </div>
                                 </div>

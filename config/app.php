@@ -15,6 +15,8 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'presentlist_code' => env('PRESENTLIST_CODE','CODE'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment

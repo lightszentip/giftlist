@@ -35,10 +35,15 @@
     <main class="flex-shrink-0">
         <div class="container">
             @if ($message = Session::get('success'))
-                <div class="alert alert-success">
+                <div class="alert alert-success m-4">
                     <p>{{ $message }}</p>
                 </div>
             @endif
+                @if ($message = Session::get('error'))
+                    <div class="alert alert-danger m-4">
+                        <p>{{ $message }}</p>
+                    </div>
+                @endif
             @if (isset($header))
                {{ $header }}
             @endif
@@ -52,5 +57,6 @@
 @stack('modals')
 
 @livewireScripts
+<script src="{{ mix('js/extras.js') }}"></script>
 </body>
 </html>

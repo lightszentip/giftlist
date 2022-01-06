@@ -70,7 +70,7 @@
 
 {{ $slot }}
 
-
+<script src="{{ mix('js/extras.js') }}"></script>
 </body>
 </body>
 </html>
