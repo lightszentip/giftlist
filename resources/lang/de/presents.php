@@ -15,6 +15,7 @@ return [
     'create_success' => 'Das Geschenk ":Title" wurde erfolgreich unter der Nummer :Id angelegt',
     'release_success' => 'Das Geschenk ":Title" wurde erfolgreich released',
     'draft_success' => 'Das Geschenk ":Title" wurde erfolgreich wieder auf Entwurf gestellt',
+    'reset_success' => 'Das Geschenk ":Title" wurde erfolgreich wieder freigegeben.',
     'status_draft' => 'Entwurf',
     'details_title' => 'Details vom Geschenk :Title',
     'share_success' => 'Du hast das Geschenk ":Title" mit dem Code zur freigabe :Code gewählt',
@@ -26,5 +27,7 @@ return [
     'error_title' => 'ACHTUNG!',
     'error_title_text' => 'Da gab es wohl ein Fehler. Bitte überprüfen:',
     'edit_title' => 'Geschenk :Title mit der ID :Id editieren',
+
+    'reset_error' => 'Der Code passt leider nicht',
 
 ];

@@ -49,6 +49,23 @@ php artisan migrate
 php artisan db:seed
 ````
 
+## Settings
+
+````shell
+PRESENTLIST_MAIL_FROM_EMAIL=foobar@xyz.com
+PRESENTLIST_MAIL_TITLE=Presentlist
+PRESENTLIST_MAIL_FROM_NAME=FOO Bar
+PRESENTLIST_CODE=CODE #If you want a auto generate code instead of save user email address to have a link present to user
+````
+
+### USER
+
+For first login:
+username: noreply@pleasereplacethisdomainemail.com
+pw: secret
+
+__HINT:__ Please change the password and user email adress
+
 ## Other
 http://lightszentip.github.io/giftlist/
 
@@ -77,8 +94,8 @@ Presentlist ist eine Geschenkliste auf der man seine Wünsche zur Hochzeit, Gebu
 
 ## Requirements ##
 
-- PHP 5.3.7 oder höher
-- MySQL Datenbank (andere sind aktuell nur durch bearbeiten der Sources möglich)
+- PHP 7.4 oder höher
+- MySQL Datenbank
 - PHP PDO Support für MySQL aktiv (extension=php_pdo_mysql.dll)
 
 
@@ -112,7 +129,7 @@ The app presentlist is show the wishes from wedding, birthday or from other occa
 ## Requirements ##
 
 - PHP 7.4 or higher
-- MySQL Database (other database only support by you edit the source files)
+- MySQL Database
 - PHP PDO Support for MySQL active (extension=php_pdo_mysql.dll)
 
 

@@ -69,6 +69,11 @@ class Presents extends Model
         $this->status = 0;
     }
 
+    public function isUsed() : bool
+    {
+        return $this->status == 2;
+    }
+
     private function getCodeValue() {
         $signs =  array_merge(range('A', 'Z'), range(0, 9), array('$', '/', '_', '-', ';'));
         $int_array = count($signs);
