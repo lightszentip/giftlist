@@ -31,6 +31,10 @@ Route::get('/present/details/{present}',
     [PresentsController::class, 'detailsPresent'])->name('presents.details');
 Route::get('/present/share/{present}',
     [PresentsController::class, 'selectPresent'])->name('presents.share');
+Route::post('/present/resetuser',
+    [PresentsController::class, 'resetUserPresent'])->name('presents.resetUser');
+Route::middleware(['auth:sanctum', 'verified'])->post('/present/reset/{present}',
+    [PresentsController::class, 'resetPresent'])->name('presents.reset');
 Route::middleware(['auth:sanctum', 'verified'])->post('/present/save/{present}',
     [PresentsController::class, 'savePresent'])->name('presents.save');
 Route::middleware(['auth:sanctum', 'verified'])->post('/present/create',

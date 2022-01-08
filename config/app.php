@@ -17,6 +17,11 @@ return [
 
     'presentlist_code' => env('PRESENTLIST_CODE','CODE'),
 
+    'presentlist_mail_from_email' => env('PRESENTLIST_MAIL_FROM_EMAIL','NOTSET@notset.notset'),
+    'presentlist_mail_title' => env('PRESENTLIST_MAIL_TITLE','Presentlist'),
+    'presentlist_mail_from_name' => env('PRESENTLIST_MAIL_FROM_NAME','NOTSETNAME'),
+
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment

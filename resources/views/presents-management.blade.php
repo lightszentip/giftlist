@@ -52,13 +52,15 @@
                                        class="btn  btn-secondary  mg10bt  m-2"
                                        role="button"><i class="bi bi-clipboard-check"></i> {{__('messages-page.presenttable_button_release')}}</a>
                                     @endif
-                                    @if ($present->status == 1)
+                                    @if ($present->status == 1 && !$present->isUsed())
                                         <a href="{{route('presents.draft',$present->id)}}"
                                            class="btn  btn-secondary  mg10bt  m-2"
                                            role="button"><i class="bi bi-clipboard-check"></i> {{__('messages-page.presenttable_button_draft')}}</a>
                                     @endif
+                                    @if (!$present->isUsed())
                                     <a data-bs-toggle="modal" class="btn btn-warning" data-bs-target="#deletePresentModalLabel_{{$present->id}}"
                                        data-action="{{ route('presents.delete', $present->id) }}"><i class="bi bi-trash">{{__('messages-page.presenttable_button_delete')}}</i></a>
+
                                     <div class="modal fade" id="deletePresentModalLabel_{{$present->id}}" data-backdrop="static" tabindex="-1" role="dialog"
                                          aria-labelledby="deletePresentModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
@@ -82,6 +84,34 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @endif
+                                    @if ($present->isUsed())
+                                        <a data-bs-toggle="modal" class="btn btn-warning" data-bs-target="#resetPresentModalLabel_{{$present->id}}"
+                                           data-action="{{ route('presents.delete', $present->id) }}"><i class="bi bi-trash">{{__('messages-page.presenttable_button_reset')}}</i></a>
+
+                                        <div class="modal fade" id="resetPresentModalLabel_{{$present->id}}" data-backdrop="static" tabindex="-1" role="dialog"
+                                             aria-labelledby="resetPresentModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="resetPresentModalLabel">{{__('messages-page.reset_modal_title')}}</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <form method="POST" action="{{ route('presents.reset', $present->id) }}">
+                                                        <div class="modal-body">
+                                                            @csrf
+                                                            <h5 class="text-center">{{__('messages-page.reset_modal_text',['id'=> $present->id,'title'=>$present->title])}}</h5>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                                {{__('messages-page.modal_reset_cancel')}}</button>
+                                                            <button type="submit" class="btn btn-danger">{{__('messages-page.modal_reset_reset')}}</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
 
                                 </td>
                             </tr>
