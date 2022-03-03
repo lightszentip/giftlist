@@ -2,7 +2,7 @@
 ![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/lightszentip/giftlist?style=for-the-badge)
 ![GitHub](https://img.shields.io/github/license/lightszentip/giftlist?style=for-the-badge)
 ![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/lightszentip/giftlist?include_prereleases&style=for-the-badge)
-![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/lightszentip/giftlist?style=for-the-badge)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/lightszentip/giftlist?style=for-the-badge)[![SL Scan](https://github.com/lightszentip/giftlist/actions/workflows/shiftleft.yml/badge.svg?branch=main)](https://github.com/lightszentip/giftlist/actions/workflows/shiftleft.yml)
 ## Installation
 ### Installation over Release Zip
 
