@@ -21,7 +21,7 @@
         "postcss-import": "^14.0.1",
         "resolve-url-loader": "^5.0.0",
         "sass": "^1.45.1",
-        "sass-loader": "^12.4.0"
+        "sass-loader": "^13.0.0"
     },
     "dependencies": {
         "dropzone": "^5.9.3",
