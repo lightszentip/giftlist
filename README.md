@@ -6,10 +6,13 @@
 ## Installation
 ### Installation over Release Zip
 
+* Download https://github.com/lightszentip/giftlist/releases/tag/1.0.0 giftlist-main.zip
 * unzip
 * set www root to public/
 * run install_sql.sql on your database
 * create .env file in the root dir and set the settings
+* nginx: https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-laravel-with-nginx-on-ubuntu-20-04#step-5-setting-up-nginx
+* apache: https://www.hostinger.com/tutorials/how-to-install-laravel-on-ubuntu-18-04-with-apache-and-php/#Using_Laravel_to_Deploy_an_Application
 
 #### Upgrade
 
