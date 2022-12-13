@@ -10,7 +10,7 @@
         "guzzlehttp/guzzle": "^7.4.1",
         "laravel/framework": "^8.77.1",
         "laravel/jetstream": "^2.5.1",
-        "laravel/sanctum": "^2.13",
+        "laravel/sanctum": "^3.0",
         "laravel/tinker": "^v2.6.3",
         "livewire/livewire": "^v2.8.2",
         "spatie/laravel-permission": "^5.4"
