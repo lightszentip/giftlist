@@ -73,10 +73,10 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: build/giftlist.zip
           asset_name: giftlist.zip
+          prerelease: true
           tag: ${{ github.ref }}
           overwrite: true
-          body: |
-           ${{steps.build_changelog.outputs.changelog}}  # <--- Use environment variables that was created earlier
+          body:  ${{steps.build_changelog.outputs.changelog}}
 
       - name: Upload logs on build failure 🪵
         uses: actions/upload-artifact@v3
