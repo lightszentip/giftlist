@@ -74,6 +74,7 @@ jobs:
           file: build/giftlist.zip
           asset_name: giftlist.zip
           prerelease: true
+          release_name: v${{ github.ref }}
           tag: ${{ github.ref }}
           overwrite: true
           body:  ${{steps.build_changelog.outputs.changelog}}
