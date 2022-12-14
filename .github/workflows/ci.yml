@@ -46,7 +46,7 @@ jobs:
         with:
           args: zip -X -r build/giftlist.zip . -x *.git* .github/\* node_modules/\* .* "*/\.*" CODE_OF_CONDUCT.md CONTRIBUTING.md ISSUE_TEMPLATE.md PULL_REQUEST_TEMPLATE.md *.dist composer.* build**
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
             name: giftlist
             path: build/giftlist.zip
