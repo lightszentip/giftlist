@@ -63,7 +63,7 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: target/release/gitlist.zip
+          file: build/gitlist.zip
           asset_name: gitlist.zip
           tag: ${{ github.ref }}
           overwrite: true
