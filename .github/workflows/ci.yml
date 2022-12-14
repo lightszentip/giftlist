@@ -67,7 +67,6 @@ jobs:
           asset_name: gitlist.zip
           tag: ${{ github.ref }}
           overwrite: true
-          body: "This is my release text"
 
       - name: Upload logs on build failure 🪵
         uses: actions/upload-artifact@v3
