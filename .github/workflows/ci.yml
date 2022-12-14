@@ -37,11 +37,11 @@ jobs:
           DB_CONNECTION: sqlite
           DB_DATABASE: database/database.sqlite
         run: vendor/bin/phpunit
-      - name: Execute the PHP lint script 🧹
-        run: |
-          ./vendor/bin/phpstan --version
-          ./vendor/bin/phpstan analyse
-
+   #   - name: Execute the PHP lint script 🧹
+   #     run: |
+   #       ./vendor/bin/phpstan --version
+   #       ./vendor/bin/phpstan analyse
+#
       - name: Run security checks 👮
         uses: symfonycorp/security-checker-action@v3
         
