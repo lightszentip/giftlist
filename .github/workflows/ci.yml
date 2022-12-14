@@ -59,6 +59,9 @@ jobs:
         with:
             name: giftlist
             path: build/giftlist.zip
+      - name: "Build Changelog"
+        id: build_changelog
+        uses: mikepenz/release-changelog-builder-action@{latest-release}
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
@@ -67,6 +70,8 @@ jobs:
           asset_name: giftlist.zip
           tag: ${{ github.ref }}
           overwrite: true
+          body: |
+           ${{steps.build_changelog.outputs.changelog}}  # <--- Use environment variables that was created earlier
 
       - name: Upload logs on build failure 🪵
         uses: actions/upload-artifact@v3
