@@ -4,7 +4,7 @@ on:
   push:
   pull_request:
 jobs:
-  tests:
+  cibuild:
     runs-on: ubuntu-latest
     name: Tests
     steps:
