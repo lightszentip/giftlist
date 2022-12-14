@@ -59,12 +59,15 @@ jobs:
         with:
             name: giftlist
             path: build/giftlist.zip
-      - name: Upload to release
-        uses: JasonEtco/upload-to-release@master
+      - name: Upload binaries to release
+        uses: svenstaro/upload-release-action@v2
         with:
-          args: build/giftlist.zip application/zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: target/release/gitlist.zip
+          asset_name: gitlist.zip
+          tag: ${{ github.ref }}
+          overwrite: true
+          body: "This is my release text"
 
       - name: Upload logs on build failure 🪵
         uses: actions/upload-artifact@v3
