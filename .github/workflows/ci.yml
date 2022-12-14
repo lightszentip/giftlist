@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    name: Tests
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2          
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.0
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite
+          coverage: none      
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --no-interaction --no-suggest --optimize-autoloader      
+      - name: Install NPM dependencies
+        run: npm install      
+      - name: Compile assets
+        run: npm run production      
+      - name: Execute tests
+        run: vendor/bin/phpunit --verbose  
+      - name: Execute the PHP lint script 🧹
+        run: |
+          ./vendor/bin/phpstan --version
+          ./vendor/bin/phpstan analyse
+
+      - name: Run security checks 👮
+        uses: symfonycorp/security-checker-action@v3
+        
+      - name: Build project
+        run:  mkdir build
+      - name: Create artifact
+        uses: montudor/action-zip@v0.1.0
+        with:
+          args: zip -X -r build/giftlist.zip . -x *.git* .github/\* node_modules/\* .* "*/\.*" CODE_OF_CONDUCT.md CONTRIBUTING.md ISSUE_TEMPLATE.md PULL_REQUEST_TEMPLATE.md *.dist composer.* build**
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+            name: giftlist
+            path: build/giftlist.zip
+      - name: Upload to release
+        uses: JasonEtco/upload-to-release@master
+        with:
+          args: build/giftlist.zip application/zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload logs on build failure 🪵
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: Laravel Logs
+          path: ./storage/logs
