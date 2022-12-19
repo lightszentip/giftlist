@@ -4,7 +4,6 @@ on:
   push:
     branches: [ "main" ]
   pull_request:
-    branches: [ "main" ]
 
 jobs:
   laravel-tests:
@@ -33,3 +32,6 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: vendor/bin/phpunit
+    #
+    - name: Run security checks 👮
+      uses: symfonycorp/security-checker-action@v3
