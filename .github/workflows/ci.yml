@@ -46,7 +46,7 @@ jobs:
    #       ./vendor/bin/phpstan analyse
 #
       - name: Run security checks 👮
-        uses: symfonycorp/security-checker-action@v3
+        uses: symfonycorp/security-checker-action@v5
         
       - name: Remove .env
         run: rm .env
