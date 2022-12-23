@@ -38,4 +38,4 @@ jobs:
       run: vendor/bin/phpunit
     #
     - name: Run security checks 👮
-      uses: symfonycorp/security-checker-action@v3
+      uses: symfonycorp/security-checker-action@v5
