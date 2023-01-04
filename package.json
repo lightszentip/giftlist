@@ -27,5 +27,8 @@
         "dropzone": "^5.9.3",
         "holderjs": "^2.9.9",
         "light-switch-bootstrap": "^0.1.4"
+    },
+    "overrides": {
+        "json5": ">=2.2.2"
     }
 }
