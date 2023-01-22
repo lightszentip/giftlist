@@ -11,21 +11,24 @@
     },
     "devDependencies": {
         "@popperjs/core": "^2.11.6",
-        "axios": "^1.2.1",
+        "axios": "^1.2.2",
         "bootstrap": "^5.2.3",
-        "bootstrap-icons": "^1.10.2",
-        "jquery": "^3.6.2",
+        "bootstrap-icons": "^1.10.3",
+        "jquery": "^3.6.3",
         "laravel-mix": "^6.0.49",
         "lodash": "^4.17.21",
-        "postcss": "^8.4.20",
+        "postcss": "^8.4.21",
         "postcss-import": "^15.1.0",
         "resolve-url-loader": "^5.0.0",
-        "sass": "^1.56.2",
+        "sass": "^1.57.1",
         "sass-loader": "^13.2.0"
     },
     "dependencies": {
         "dropzone": "^5.9.3",
         "holderjs": "^2.9.9",
         "light-switch-bootstrap": "^0.1.4"
+    },
+    "overrides": {
+        "json5": ">=2.2.2"
     }
 }

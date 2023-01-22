@@ -6,14 +6,13 @@ on:
       - '*'
     branches:
       - 'main'
-  pull_request:
 jobs:
   cibuild:
     runs-on: ubuntu-latest
     name: CI Build
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2          
+        uses: actions/checkout@v3          
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -47,7 +46,7 @@ jobs:
    #       ./vendor/bin/phpstan analyse
 #
       - name: Run security checks 👮
-        uses: symfonycorp/security-checker-action@v3
+        uses: symfonycorp/security-checker-action@v5
         
       - name: Remove .env
         run: rm .env
@@ -55,7 +54,7 @@ jobs:
       - name: Build project
         run:  mkdir build
       - name: Create artifact
-        uses: montudor/action-zip@v0.1.1
+        uses: montudor/action-zip@v1.0.0
         with:
           args: zip -X -r build/giftlist.zip . -x *.git* -x .github/*  -x ./node_modules/*
       - name: Upload artifact
@@ -65,7 +64,7 @@ jobs:
             path: build/giftlist.zip
       - name: "Build Changelog"
         id: build_changelog
-        uses: mikepenz/release-changelog-builder-action@v3.5.0
+        uses: mikepenz/release-changelog-builder-action@v3.6.0
 
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2

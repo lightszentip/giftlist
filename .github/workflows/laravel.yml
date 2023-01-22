@@ -4,7 +4,6 @@ on:
   push:
     branches: [ "main" ]
   pull_request:
-    branches: [ "main" ]
 
 jobs:
   laravel-tests:
@@ -12,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: shivammathur/setup-php@aa9b80f15808d36452d0bbac9762905bd9685ac2
+    - uses: shivammathur/setup-php@2b77dd6b79c3203adc3e3809cde9687bf5834238
       with:
         php-version: '8.0'
     - uses: actions/checkout@v3
@@ -20,6 +19,10 @@ jobs:
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
     - name: Install Dependencies
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+    - name: Install NPM dependencies
+      run: npm install      
+    - name: Compile assets
+      run: npm run production
     - name: Generate key
       run: php artisan key:generate
     - name: Directory Permissions
@@ -33,3 +36,6 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: vendor/bin/phpunit
+    #
+    - name: Run security checks 👮
+      uses: symfonycorp/security-checker-action@v5
