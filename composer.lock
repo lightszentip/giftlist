@@ -2138,16 +2138,16 @@
         },
         {
             "name": "livewire/livewire",
-            "version": "v2.11.1",
+            "version": "v2.11.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/livewire.git",
-                "reference": "3ecbb4885d61427e538fcfb9bb9598b513a2176f"
+                "reference": "e92233f31dc1b88fb1ac242b32afe1ab7525ee05"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/livewire/zipball/3ecbb4885d61427e538fcfb9bb9598b513a2176f",
-                "reference": "3ecbb4885d61427e538fcfb9bb9598b513a2176f",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/e92233f31dc1b88fb1ac242b32afe1ab7525ee05",
+                "reference": "e92233f31dc1b88fb1ac242b32afe1ab7525ee05",
                 "shasum": ""
             },
             "require": {
@@ -2199,7 +2199,7 @@
             "description": "A front-end framework for Laravel.",
             "support": {
                 "issues": "https://github.com/livewire/livewire/issues",
-                "source": "https://github.com/livewire/livewire/tree/v2.11.1"
+                "source": "https://github.com/livewire/livewire/tree/v2.11.2"
             },
             "funding": [
                 {
@@ -2207,7 +2207,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-01-28T00:15:41+00:00"
+            "time": "2023-01-29T23:45:02+00:00"
         },
         {
             "name": "mobiledetect/mobiledetectlib",
@@ -2369,16 +2369,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.65.0",
+            "version": "2.66.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "09acf64155c16dc6f580f36569ae89344e9734a3"
+                "reference": "496712849902241f04902033b0441b269effe001"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/09acf64155c16dc6f580f36569ae89344e9734a3",
-                "reference": "09acf64155c16dc6f580f36569ae89344e9734a3",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/496712849902241f04902033b0441b269effe001",
+                "reference": "496712849902241f04902033b0441b269effe001",
                 "shasum": ""
             },
             "require": {
@@ -2467,7 +2467,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-01-06T15:55:01+00:00"
+            "time": "2023-01-29T18:53:47+00:00"
         },
         {
             "name": "nette/schema",
@@ -8630,5 +8630,5 @@
         "php": "^7.4|^8.0|^8.1|^8.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.3.0"
 }
