@@ -16,7 +16,7 @@
         "spatie/laravel-permission": "^5.7"
     },
     "require-dev": {
-        "spatie/laravel-ignition": "^1.6.2",
+        "spatie/laravel-ignition": "^2.0.0",
         "fakerphp/faker": "^1.21.1",
         "laravel/sail": "^1.16.4",
         "mockery/mockery": "^1.5.1",
