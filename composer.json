@@ -8,7 +8,7 @@
         "php": "^7.4|^8.0|^8.1|^8.2",
         "guzzlehttp/guzzle": "^7.5.0",
         "laravel/framework": "^v9.43.0",
-        "laravel/jetstream": "^2.12.6",
+        "laravel/jetstream": "^3.0.0",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^v2.7.3",
         "lightszentip/laravel-release-changelog-generator": "^0.2.1",
