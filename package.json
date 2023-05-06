@@ -20,8 +20,8 @@
         "postcss": "^8.4.21",
         "postcss-import": "^15.1.0",
         "resolve-url-loader": "^5.0.0",
-        "sass": "^1.62.1",
-        "sass-loader": "^13.2.1"
+        "sass-loader": "^13.2.2",
+        "sass": "^1.62.1"
     },
     "dependencies": {
         "dropzone": "^5.9.3",
