@@ -6,13 +6,17 @@
 ## Installation
 ### Installation over Release Zip
 
-* Download https://github.com/lightszentip/giftlist/releases/tag/1.0.0 giftlist-main.zip
-* unzip
+* Download https://github.com/lightszentip/giftlist/releases/tag/1.0.4 giftlist-main.zip
+* unzip in your nginx/apache folder
 * set www root to public/
-* run install_sql.sql on your database
+    * nginx: https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-laravel-with-nginx-on-ubuntu-20-04#step-5-setting-up-nginx
+    * apache: https://www.hostinger.com/tutorials/how-to-install-laravel-on-ubuntu-18-04-with-apache-and-php/#Using_Laravel_to_Deploy_an_Application
 * create .env file in the root dir and set the settings
-* nginx: https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-laravel-with-nginx-on-ubuntu-20-04#step-5-setting-up-nginx
-* apache: https://www.hostinger.com/tutorials/how-to-install-laravel-on-ubuntu-18-04-with-apache-and-php/#Using_Laravel_to_Deploy_an_Application
+````shell
+php artisan key:generate
+php artisan migrate
+php artisan db:seed
+````
 
 #### Upgrade
 
@@ -94,25 +98,9 @@ Presentlist ist eine Geschenkliste auf der man seine Wünsche zur Hochzeit, Gebu
 	- Wartungsmodus aktivieren
 	- Einstellungen ändern
 
-
-## Requirements ##
-
-- PHP 7.4 oder höher
-- MySQL Datenbank
-- PHP PDO Support für MySQL aktiv (extension=php_pdo_mysql.dll)
-
-
-## Anleitung ##
-
-Die Zip Datei im gewüschten Ordner entpacken und die Url zum Ordner aufrufen. Danach wird man auf den Install Wizard weitergeleitet. Nach dem ausführen des Install Wizard den setup Ordner löschen. Danach sich anmelden und das Passwort und die Email Adresse des Admin Benutzers ändern. Durch das Ändern des Benutzernamens wird zudem die Sicherheit erhöht.
-
-Bei Fragen/Problemen/Erweiterungen und Feedback stehe ich gerne zur Verfügung. Entweder per Email oder durch erstellen eines Issues.
-
 ## English ##
 
 The app presentlist is show the wishes from wedding, birthday or from other occasions. You can create a present with a title, description, image and links. If a user take a present from the list, it is not visible for other user.
-
-
 
 ## Functions ##
 - list with presents
@@ -127,13 +115,6 @@ The app presentlist is show the wishes from wedding, birthday or from other occa
 	- Login / Logout
 	- maintenance mode
 	- change settings
-
-
-## Requirements ##
-
-- PHP 7.4 or higher
-- MySQL Database
-- PHP PDO Support for MySQL active (extension=php_pdo_mysql.dll)
 
 
 ## Instructions ##

@@ -10,8 +10,8 @@
         "production": "mix --production"
     },
     "devDependencies": {
-        "@popperjs/core": "^2.11.6",
-        "axios": "^1.3.4",
+        "@popperjs/core": "^2.11.7",
+        "axios": "^1.4.0",
         "bootstrap": "^5.2.3",
         "bootstrap-icons": "^1.10.3",
         "jquery": "^3.6.4",
@@ -20,13 +20,13 @@
         "postcss": "^8.4.21",
         "postcss-import": "^15.1.0",
         "resolve-url-loader": "^5.0.0",
-        "sass": "^1.59.3",
-        "sass-loader": "^13.2.2"
+        "sass-loader": "^13.2.2",
+        "sass": "^1.62.1"
     },
     "dependencies": {
         "dropzone": "^5.9.3",
         "holderjs": "^2.9.9",
-        "light-switch-bootstrap": "^0.1.4"
+        "light-switch-bootstrap": "^0.1.5"
     },
     "overrides": {
         "json5": ">=2.2.2"
