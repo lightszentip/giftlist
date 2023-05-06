@@ -6,7 +6,7 @@
 ## Installation
 ### Installation over Release Zip
 
-* Download https://github.com/lightszentip/giftlist/releases/tag/1.0.0 giftlist-main.zip
+* Download https://github.com/lightszentip/giftlist/releases/tag/1.0.4 giftlist-main.zip
 * unzip
 * set www root to public/
 * run install_sql.sql on your database
