@@ -1,18 +1,33 @@
 {
+
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-      "packageRules": [
+    "schedule": "before 5am every weekday",
+    "labels": ["dependencies"],
+    "packageRules": [
     {
       "depTypeList": [ "devDependencies", "require-dev" ],
       "updateTypes": [ "patch", "minor", "digest"],
       "groupName": "devDependencies (non-major)"
+    },
+{
+      "groupName": "all non-minor dependencies",
+      "groupSlug": "all-patch",
+      "matchPackagePatterns": [
+        "*"
+      ],
+      "matchUpdateTypes": [
+        "patch"
+      ],
+    "automerge" : true
     }
   ],
-    "labels": ["dependencies"],
+    "lockFileMaintenance": { "enabled": true },
   "extends": [
     "config:base",
     ":preserveSemverRanges",
     ":dependencyDashboard",
     ":rebaseStalePrs",
+    ":automergePatch",  
     ":enableVulnerabilityAlertsWithLabel('security')",
     "group:recommended"
   ]
