@@ -58,7 +58,7 @@ jobs:
         with:
           args: zip -X -r build/giftlist.zip . -x *.git* -x .github/*  -x ./node_modules/*
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
             name: giftlist
             path: build/giftlist.zip
@@ -79,7 +79,7 @@ jobs:
           body:  ${{steps.build_changelog.outputs.changelog}}
 
       - name: Upload logs on build failure 🪵
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: Laravel Logs
