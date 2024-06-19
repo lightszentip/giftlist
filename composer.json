@@ -9,7 +9,7 @@
         "guzzlehttp/guzzle": "^7.5.0",
         "laravel/framework": "^v9.43.0",
         "laravel/jetstream": "^3.0.1",
-        "laravel/sanctum": "^3.0",
+        "laravel/sanctum": "^4.0",
         "laravel/tinker": "^v2.7.3",
         "lightszentip/laravel-release-changelog-generator": "^0.3.0",
         "livewire/livewire": "^v2.10.7",
