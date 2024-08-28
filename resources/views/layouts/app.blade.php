@@ -26,7 +26,7 @@
 @if( !App::environment(['Production','prd','PROD']))
     <div class="md:visible ribbon ribbon-top-left"><span>{{App::environment()}} Test</span></div>
 @endif
-<x-jet-banner/>
+<x-banner/>
 
 
 <div class="container-fluid px-0">
