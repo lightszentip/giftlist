@@ -7,7 +7,7 @@
     "require": {
         "php": "^8.1|^8.2",
         "guzzlehttp/guzzle": "^7.9.2",
-        "laravel/framework": "^v10.48.20",
+        "laravel/framework": "^v11.0.0",
         "laravel/jetstream": "^v4.3.1",
         "laravel/sanctum": "^v3.3.3",
         "laravel/tinker": "^v2.9.0",
