@@ -12,7 +12,7 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^v2.7.3",
         "lightszentip/laravel-release-changelog-generator": "^0.3.0",
-        "livewire/livewire": "^v2.10.7",
+        "livewire/livewire": "^v3.0.0",
         "spatie/laravel-permission": "^5.7"
     },
     "require-dev": {
