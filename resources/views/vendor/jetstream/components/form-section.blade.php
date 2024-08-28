@@ -8,7 +8,7 @@
     </x-jet-section-title>
 
     <div class="mb-3">
-        <form wire:submit.prevent="{{ $submit }}">
+        <form wire:submit="{{ $submit }}">
             <div
                 class=" {{ isset($actions) ? 'sm:rounded-tl-md sm:rounded-tr-md' : 'sm:rounded-md' }}">
 

@@ -8,8 +8,9 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
+    @googlefonts
+    <!-- Styles -->
+    @livewireStyles
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
@@ -60,6 +61,7 @@
     @if( !App::environment(['Production','prd','PROD']))
         <link rel="stylesheet" href="{{ asset('css/ribbon.css') }}">
     @endif
+
 </head>
 <body class="text-center bg-light text-dark">
 @if( !App::environment(['Production','prd','PROD']))
@@ -69,8 +71,8 @@
 
 
 {{ $slot }}
-
+@livewireScripts
 <script src="{{ mix('js/extras.js') }}"></script>
-</body>
+
 </body>
 </html>
