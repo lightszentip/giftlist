@@ -5,7 +5,6 @@ import Popper from '@popperjs/core/dist/umd/popper.js';
 
 try {
     window.Popper = Popper;
-    window.Popper = Popper;
     window.$ = window.jQuery = require('jquery');
     require('bootstrap');
 } catch (e) {

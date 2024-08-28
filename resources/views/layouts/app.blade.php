@@ -8,7 +8,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    @googlefonts
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
@@ -26,7 +26,7 @@
 @if( !App::environment(['Production','prd','PROD']))
     <div class="md:visible ribbon ribbon-top-left"><span>{{App::environment()}} Test</span></div>
 @endif
-<x-jet-banner/>
+<x-banner/>
 
 
 <div class="container-fluid px-0">

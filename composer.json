@@ -5,23 +5,24 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^7.4|^8.0|^8.1|^8.2",
-        "guzzlehttp/guzzle": "^7.5.0",
-        "laravel/framework": "^v9.43.0",
-        "laravel/jetstream": "^3.0.1",
-        "laravel/sanctum": "^3.0",
-        "laravel/tinker": "^v2.7.3",
-        "lightszentip/laravel-release-changelog-generator": "^0.3.0",
-        "livewire/livewire": "^v2.10.7",
-        "spatie/laravel-permission": "^5.7"
+        "php": "^8.1|^8.2",
+        "guzzlehttp/guzzle": "^7.9.2",
+        "laravel/framework": "^v10.48.20",
+        "laravel/jetstream": "^v4.3.1",
+        "laravel/sanctum": "^v3.3.3",
+        "laravel/tinker": "^v2.9.0",
+        "lightszentip/laravel-release-changelog-generator": "^0.3.5",
+        "livewire/livewire": "^v3.5.6",
+        "spatie/laravel-google-fonts": "^1.4",
+        "spatie/laravel-permission": "^5.11.1"
     },
     "require-dev": {
-        "spatie/laravel-ignition": "^2.0.0",
-        "fakerphp/faker": "^1.21.1",
-        "laravel/sail": "^1.16.4",
-        "mockery/mockery": "^1.5.1",
-        "nunomaduro/collision": "^v7.0.0",
-        "phpunit/phpunit": "^10.0.12"
+        "spatie/laravel-ignition": "^2.8.0",
+        "fakerphp/faker": "^v1.23.1",
+        "laravel/sail": "^v1.31.1",
+        "mockery/mockery": "^1.6.12",
+        "nunomaduro/collision": "^v7.10.0",
+        "phpunit/phpunit": "^10.5.30"
     },
     "autoload": {
         "psr-4": {
@@ -60,6 +61,6 @@
         "preferred-install": "dist",
         "sort-packages": true
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }
